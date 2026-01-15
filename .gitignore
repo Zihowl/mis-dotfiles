@@ -5,3 +5,4 @@
 !/.gitignore
 !/hypr/
 !/waybar/
+!/vscode_argv_backup.json
