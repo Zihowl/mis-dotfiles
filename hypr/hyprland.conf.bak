@@ -45,8 +45,10 @@ $menu = /home/zihowl/rofi/files/launchers/type-2/launcher.sh
 # Autostart necessary processes (like notifications daemons, status bars, etc.)
 # Or execute your favorite apps at launch like this:
 
+exec-once = qdbus6 org.kde.kded6 /kded org.kde.kded6.loadModule statusnotifierwatcher
 
-exec-once = waybar
+exec-once = snixembed
+exec-once = waybar &
 
 exec-once = mako & 
 exec-once = /usr/lib/polkit-kde-authentication-agent-1
@@ -56,16 +58,6 @@ exec-once = wl-paste --watch cliphist store
 exec-once = hypridle &
 exec-once = nm-applet --indicator &
 exec-once = waypaper --restore
-# exec-once = snixembed  # Deshabilitado - waybar maneja el tray nativo
-
-# Problema: snixembed (y posiblemente kded6 statusnotifierwatcher) se iniciaban antes que waybar, capturando el control del bus org.kde.StatusNotifierWatcher. Esto hacía que las aplicaciones se registraran con snixembed en lugar de con waybar, dejando el tray de waybar vacío.
-# Solución aplicada en ~/.config/hypr/hyprland.conf:
-
-# Se eliminó la línea que cargaba statusnotifierwatcher de KDE via kded6
-# "snixembed" comentado (ya que waybar maneja el tray SNI nativo)
-
-# Para usar snixembed en el futuro (para apps muy antiguas que usan XEmbed), se puede descomentar pero debe iniciarse DESPUÉS de waybar con un delay:
-# exec-once = sleep 2 && snixembed --fork
 
 # -----------------------------------------------------
 # Autenticación y Keyring (Seguridad)

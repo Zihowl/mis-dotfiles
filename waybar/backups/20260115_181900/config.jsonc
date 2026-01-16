@@ -15,6 +15,7 @@
     ],
     "modules-right": [
         "pulseaudio",
+        "custom/microphone",
         "backlight",
         "bluetooth",
         "network",
@@ -103,7 +104,7 @@
     "clock": {
         "timezone": "America/Mexico_City",
         "locale": "es_MX.UTF-8",
-        "format": "{:%H:%M}",
+        "format": "{:%I:%M %p}",
         "format-alt": "{:%d/%m/%Y}",
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
@@ -228,6 +229,20 @@
         "tooltip-format": "Volumen: {volume}%\nDispositivo: {desc}\n\nClic: pwvucontrol | Clic derecho: Silenciar",
         "on-click": "pwvucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "custom/microphone": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "format-icons": {
+            "muted": "",
+            "unmuted": ""
+        },
+        "exec": "$HOME/.config/waybar/check_mic.sh",
+        "on-click": "pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle",
+        "on-scroll-up": "pactl set-source-volume alsa_input.pci-0000_00_1f.3.analog-stereo +5%",
+        "on-scroll-down": "pactl set-source-volume alsa_input.pci-0000_00_1f.3.analog-stereo -5%",
+        "scroll-step": 5,
+        "interval": 1
     },
     "custom/media": {
         "format": "{icon} {text}",

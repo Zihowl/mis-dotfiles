@@ -238,11 +238,11 @@ tooltip label {
     margin-right: 8px;
 }
 
-#tray > .passive {
+#tray>.passive {
     -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
     -gtk-icon-effect: highlight;
     background: rgba(243, 139, 168, 0.2);
 }
@@ -265,10 +265,20 @@ tooltip label {
    Microphone (separado)
    ============================================================================= */
 
-#pulseaudio.microphone {
+#custom-microphone {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin: 5px 3px;
+    padding: 4px 12px;
+    transition: all 0.3s ease;
     color: #f38ba8;
 }
 
-#pulseaudio.microphone:hover {
+#custom-microphone.muted {
+    color: #6c7086;
+    background: rgba(108, 112, 134, 0.2);
+}
+
+#custom-microphone:hover {
     background: rgba(243, 139, 168, 0.2);
 }
