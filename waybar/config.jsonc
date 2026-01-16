@@ -101,8 +101,9 @@
     "clock": {
         "timezone": "America/Mexico_City",
         "locale": "es_MX.UTF-8",
-        "format": "{:%H:%M}",
-        "format-alt": "{:%d/%m/%Y}",
+        "format": "{:%I:%M %p}",
+        "format-alt": "{0:%I:%M:%S %p} - {0:%d/%m/%Y}",
+        "interval": 1,
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
             "mode": "month",
