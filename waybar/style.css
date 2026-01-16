@@ -107,6 +107,7 @@ tooltip label {
 #network,
 #bluetooth,
 #battery,
+#custom-power,
 #tray {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
@@ -228,6 +229,16 @@ tooltip label {
     to {
         background: rgba(243, 139, 168, 0.1);
     }
+}
+
+#custom-power {
+    color: #cdd6f4;
+    transition: all 0.3s ease;
+}
+
+#custom-power:hover {
+    background: rgba(137, 180, 250, 0.2);
+    color: #89b4fa;
 }
 
 /* =============================================================================
